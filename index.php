@@ -57,7 +57,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
-              <a href="#" class="nav-link active">
+              <a href="index.php" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -65,10 +65,10 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-user-secret"></i>
+              <a href="member.php" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
                 <p>
-                  Admin
+                  Member
                 </p>
               </a>
             </li>
@@ -173,7 +173,7 @@
 
             <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                <span class="info-box-icon bg-success elevation-1"><img src="dist/img/token.png" width="60%"></span>
 
                 <div class="info-box-content">
                   <span class="info-box-text">Token(s)</span>
@@ -186,7 +186,7 @@
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-3">
-                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+                <span class="info-box-icon bg-warning elevation-1"><img src="dist/img/gold.png" width="60%"></span>
 
                 <div class="info-box-content">
                   <span class="info-box-text">Gold(s)</span>
