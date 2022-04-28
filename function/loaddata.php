@@ -37,7 +37,7 @@
             ?>
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
-                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+                    <span class="info-box-icon bg-info elevation-1"><img src="dist/img/trophy.png" width="60%"></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Clan Rank</span>
