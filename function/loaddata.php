@@ -148,17 +148,6 @@
 
                                 ?>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name (ID)</th>
-                                    <th>Level</th>
-                                    <th>Reputation(s)</th>
-                                    <th>Gold Donated</th>
-                                    <th>Token Donated</th>
-                                    <th>Join Date</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                     <!-- ./card-body -->
