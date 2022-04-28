@@ -42,4 +42,3 @@ if(isset($_POST["employee_id"]))
     $output .= '</table></div>';
     echo $output;
 }
-?>

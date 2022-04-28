@@ -16,7 +16,8 @@
          success: function(data) {
            $('#update_form')[0].reset();
            $('#editModal').modal('hide');
-           $('#employee_').html(data);
+           alert(data);
+           $("#loadTable").load("function/loadtable.php");
          }
        });
      }
@@ -142,8 +143,6 @@
 </div>
 </div>
     </form>
-    </div>
-     <div class="modal-footer">
     </div>
      ';
     echo $output;

@@ -1,10 +1,3 @@
-<?php
-//index.php
-// include_once("koneksi.php");
-$connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
-$query = "SELECT * FROM member ORDER BY id DESC";
-$result = mysqli_query($connect, $query);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,45 +115,7 @@ $result = mysqli_query($connect, $query);
                   </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>ID</th>
-                        <th>Token</th>
-                        <th>Onigiri</th>
-                        <th>Device</th>
-                        <th>Macro</th>
-                        <th>Final Day</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      while ($row = mysqli_fetch_array($result)) {
-                      ?>
-                        <tr>
-                          <td><?php echo $row["nick"]; ?></td>
-                          <td><?php echo $row["charid"]; ?></td>
-                          <td><?php echo number_format($row["token"]); ?> <img src="dist/img/token.png" width="15px"> </td>
-                          <td><?php echo number_format($row["onigiri"]); ?> <img src="dist/img/onigiri.png" width="15px"> </td>
-                          <td><?php echo $row["pchp"]; ?></td>
-                          <td><?php echo $row["macro"]; ?></td>
-                          <td><?php echo $row["finalday"]; ?></td>
-                          <td>
-                            <input type="button" name="view" value="Lihat Detail" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs view_data" />&nbsp;
-                            <input type="button" name="edit" value="Edit" id="<?php echo $row["id"]; ?>" class="btn btn-warning btn-xs edit_data" /> &nbsp;
-                            <input type="button" name="delete" value="Hapus" id="<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs hapus_data" />
-                          </td>
-
-                        </tr>
-                      <?php
-                      }
-                      ?>
-                    </tbody>
-                  </table>
-                </div>
+                <div id="loadTable"></div>
                 <!-- ./card-body -->
               </div>
               <!-- /.card -->
@@ -271,38 +226,16 @@ $result = mysqli_query($connect, $query);
                 <textarea name="warn" id="warn" class="form-control" placeholder="Masukan List Warn" rows="5"></textarea>
               </div>
             </div>
-
-            <label>
-            </label>
-
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br><br>
-            <br><br>
-            <br>
-            <br>
-            <br><br>
-            <br><br>
             <div class="form-row">
               <div class="form-group col-xs-8">
                 <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
-            <br>
-            <br>
-
           </form>
 
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -366,25 +299,7 @@ $result = mysqli_query($connect, $query);
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
   <!-- Page specific script -->
-  <script>
-    $(function() {
-      $("#example1").DataTable({
-        "responsive": true,
-        "lengthChange": false,
-        "autoWidth": false,
-        "buttons": ["excel", "pdf", "print"]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-      $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-      });
-    });
-  </script>
+
   <script>
     $(document).ready(function() {
       $("#myInput").on("keyup", function() {
@@ -398,6 +313,7 @@ $result = mysqli_query($connect, $query);
 
   <script>
     $(document).ready(function() {
+      $("#loadTable").load("function/loadtable.php");
       // Begin Aksi Insert
       $('#insert_form').on("submit", function(event) {
         event.preventDefault();
@@ -416,7 +332,8 @@ $result = mysqli_query($connect, $query);
             success: function(data) {
               $('#insert_form')[0].reset();
               $('#add_data_Modal').modal('hide');
-              $('#employee_table').html(data);
+              alert(data);
+              $("#loadTable").load("function/loadtable.php");
             }
           });
         }
@@ -467,7 +384,8 @@ $result = mysqli_query($connect, $query);
             employee_id: employee_id
           },
           success: function(data) {
-            $('#employee_table').html(data);
+            alert(data);
+            $("#loadTable").load("function/loadtable.php");
           }
         });
       });
