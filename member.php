@@ -110,6 +110,8 @@
                   <h5 class="card-title">Member Data</h5>
 
                   <div class="card-tools" style="padding-right: 1rem;">
+                    <button type="button" class="btn btn-block btn-outline-success btn-xs sync-data" style="margin: 0 0.5rem">Sync Data
+                    </button>
                     <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#add_data_Modal" style="margin: 0 0.5rem">Add Member
                     </button>
                   </div>

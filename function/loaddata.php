@@ -102,11 +102,6 @@
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Member Reputation</h5>
-
-                        <div class="card-tools" style="padding-right: 1rem;">
-                            <button type="button" class="btn btn-block btn-outline-primary btn-xs" style="margin: 0 0.5rem">Sync Data
-                            </button>
-                        </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -119,30 +114,90 @@
                                     <th>Reputation(s)</th>
                                     <th>Gold Donated</th>
                                     <th>Token Donated</th>
+                                    <th>Reputation(s) Gained</th>
                                     <th>Join Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
+                                $connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
+                                $query = "SELECT * FROM member ORDER BY id DESC";
+                                $result = mysqli_query($connect, $query);
 
-                                foreach ($response['json']['members'] as $k => $r) {
+
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $clanDataFromDB[] = $row;
+                                }
+
+                                $clanDataAPI = $response['json']['members'];
+                                $clanDataAPI = array_map(function ($clanDataAPI) {
+                                    return array(
+                                        'id' => $clanDataAPI['char_id'],
+                                        'name' => $clanDataAPI['char_name'],
+                                        'level' => $clanDataAPI['char_level'],
+                                        'rank' => $clanDataAPI['char_rank'],
+                                        'reputation' => $clanDataAPI['reputation'],
+                                        'gold_donate' => $clanDataAPI['gold_donated'],
+                                        'token_donate' => $clanDataAPI['token_donated'],
+                                        'join_date' => $clanDataAPI['join_date'],
+                                    );
+                                }, $clanDataAPI);
+                                $clanDataFromDB = array_map(function ($clanDataFromDB) {
+                                    return array(
+                                        'id' => $clanDataFromDB['charid'],
+                                        'reputation_db' => $clanDataFromDB['reputation'],
+                                    );
+                                }, $clanDataFromDB);
+
+                                // $dataToBeInserted = array_uintersect_uassoc($clanDataAPI, $clanDataFromDB, function($a, $b){
+                                //     return strcasecmp($a['id'], $b['id']);
+                                // }, function($a, $b){
+                                //     return (int) [$a, $b] == ['id', 'id'];
+                                // });
+
+                                // $dataToBeInserted = array_intersect_key(array_replace($clanDataAPI, $clanDataFromDB), $clanDataAPI);
+                                // $dataToBeInserted = array_uintersect($clanDataAPI, $clanDataFromDB);
+
+                                $matchesArray = []; // array which will contains matches
+                                foreach ($clanDataAPI as &$cdAPI) { // loop through the elements
+                                    foreach ($clanDataFromDB as &$cdDB) { // loop through the elements
+                                        if($cdAPI['id'] == $cdDB['id']){
+                                            $newArray = array(
+                                                'id' => $cdAPI['id'],
+                                                'name' => $cdAPI['name'],
+                                                'level' => $cdAPI['level'],
+                                                'rank' => $cdAPI['rank'],
+                                                'reputation' => $cdAPI['reputation'],
+                                                'gold_donate' => $cdAPI['gold_donate'],
+                                                'token_donate' => $cdAPI['token_donate'],
+                                                'join_date' => $cdAPI['join_date'],
+                                                'reputation_db' => $cdDB['reputation_db']
+                                            );
+                                            array_push($matchesArray, $newArray);
+                                        }
+                                    }
+                                }
+
+                                foreach ($matchesArray as $k => $r) {
                                     $no = $k + 1;
-                                    $id = $r['char_id'];
-                                    $name = $r['char_name'];
-                                    $level = $r['char_level'];
-                                    $rank = $r['char_rank'];
+                                    $id = $r['id'];
+                                    $name = $r['name'];
+                                    $level = $r['level'];
+                                    $rank = $r['rank'];
                                     $reputation = $r['reputation'];
-                                    $gold_donate = $r['gold_donated'];
-                                    $token_donate = $r['token_donated'];
+                                    $gold_donate = $r['gold_donate'];
+                                    $token_donate = $r['token_donate'];
                                     $join_date = $r['join_date'];
+                                    $reputation_db = $r['reputation_db'];
 
                                     echo "<tr>";
                                     echo "<td>" . $no . "</td>";
                                     echo "<td>" . $name . " <b>(" . $id . ")</b></td>";
                                     echo "<td>" . $level . " </td>";
-                                    echo "<td>" . $reputation . "</td>";
-                                    echo "<td>" . $gold_donate . "</td>";
-                                    echo "<td>" . $token_donate . "</td>";
+                                    echo "<td>" . number_format($reputation) . "</td>";
+                                    echo "<td>" . number_format($gold_donate) . "</td>";
+                                    echo "<td>" . number_format($token_donate) . "</td>";
+                                    echo "<td>" . number_format($reputation - $reputation_db) . "</td>";
                                     echo "<td>" . $join_date . "</td>";
                                 }
 
@@ -165,18 +220,8 @@
     $(function() {
         $("#example1").DataTable({
             "responsive": true,
-            "lengthChange": false,
             "autoWidth": false,
             "buttons": ["excel", "pdf", "print"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
     });
 </script>

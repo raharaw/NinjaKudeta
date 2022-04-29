@@ -4,6 +4,7 @@
             <tr>
                 <th>Name</th>
                 <th>ID</th>
+                <th>Reputation</th>
                 <th>Token</th>
                 <th>Onigiri</th>
                 <th>Device</th>
@@ -17,11 +18,37 @@
             $connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
             $query = "SELECT * FROM member ORDER BY id DESC";
             $result = mysqli_query($connect, $query);
+            function curl($url, $headers = [], $postFields = [])
+            {
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                if (count($postFields) > 0) {
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+                }
+
+                if (count($headers) > 0) {
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                }
+                $result = curl_exec($ch);
+                curl_close($ch);
+                return [
+                    'txt' => json_encode($result),
+                    'json' => json_decode($result, 1)
+                ];
+            }
+
+
             while ($row = mysqli_fetch_array($result)) {
+                $clanDataFromDB[] = $row;
             ?>
                 <tr>
                     <td><?php echo $row["nick"]; ?></td>
                     <td><?php echo $row["charid"]; ?></td>
+                    <td><?php echo number_format($row["reputation"]); ?></td>
                     <td><?php echo number_format($row["token"]); ?> <img src="dist/img/token.png" width="15px"> </td>
                     <td><?php echo number_format($row["onigiri"]); ?> <img src="dist/img/onigiri.png" width="15px"> </td>
                     <td><?php echo $row["pchp"]; ?></td>
@@ -36,6 +63,8 @@
                 </tr>
             <?php
             }
+
+            
             ?>
         </tbody>
     </table>
@@ -45,18 +74,20 @@
     $(function() {
         $("#example1").DataTable({
             "responsive": true,
-            "lengthChange": false,
             "autoWidth": false,
             "buttons": ["excel", "pdf", "print"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
     });
+</script>
+<script>
+    $(document).on('click', '.sync-data', function() {
+        $.ajax({
+          url: "function/sync_data.php",
+          method: "POST",
+          success: function(data) {
+              alert(data);
+              $("#loadTable").load("function/loadtable.php");
+          }
+        });
+      });
 </script>
