@@ -111,9 +111,10 @@
                                     <th>#</th>
                                     <th>Name (ID)</th>
                                     <th>Level</th>
-                                    <th>Reputation(s)</th>
+                                    <th>Reputation(s) Realtime</th>
                                     <th>Gold Donated</th>
                                     <th>Token Donated</th>
+                                    <th>Reputation(s) Before</th>
                                     <th>Reputation(s) Gained</th>
                                     <th>Join Date</th>
                                 </tr>
@@ -197,6 +198,7 @@
                                     echo "<td>" . number_format($reputation) . "</td>";
                                     echo "<td>" . number_format($gold_donate) . "</td>";
                                     echo "<td>" . number_format($token_donate) . "</td>";
+                                    echo "<td>" . number_format($reputation_db) . "</td>";
                                     echo "<td>" . number_format($reputation - $reputation_db) . "</td>";
                                     echo "<td>" . $join_date . "</td>";
                                 }
