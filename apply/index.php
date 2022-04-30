@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Ninja Kudeta</title>
+    <title>Ninja Kudeta | Apply Candidate</title>
+    <link rel="icon" type="image/x-icon" href="images/fav.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -25,7 +26,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Ninja Kudeta | Open Recruitment!</h2>
+                    <h2 class="heading-section">Ninja Kudeta | Apply Candidate</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -117,31 +118,31 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-    $(document).ready(function() {
-      $('#insert_form').on("submit", function(event) {
-        event.preventDefault();
-        if ($('#nick').val() == "") {
-          alert("Mohon Isi Nickname ");
-        } else if ($('#charid').val() == '') {
-          alert("Mohon Isi Char ID");
-        } else {
-          $.ajax({
-            url: "register.php",
-            method: "POST",
-            data: $('#insert_form').serialize(),
-            beforeSend: function() {
-              $('#insert').val("Inserting");
-            },
-            success: function(data) {
-              $('#insert_form')[0].reset();
-              alert(data);
-            }
-          });
-        }
-      });
-    });
-    //End Aksi Delete Data
-  </script>
+        $(document).ready(function() {
+            $('#insert_form').on("submit", function(event) {
+                event.preventDefault();
+                if ($('#nick').val() == "") {
+                    alert("Mohon Isi Nickname ");
+                } else if ($('#charid').val() == '') {
+                    alert("Mohon Isi Char ID");
+                } else {
+                    $.ajax({
+                        url: "register.php",
+                        method: "POST",
+                        data: $('#insert_form').serialize(),
+                        beforeSend: function() {
+                            $('#insert').val("Inserting");
+                        },
+                        success: function(data) {
+                            $('#insert_form')[0].reset();
+                            alert(data);
+                        }
+                    });
+                }
+            });
+        });
+        //End Aksi Delete Data
+    </script>
 </body>
 
 </html>

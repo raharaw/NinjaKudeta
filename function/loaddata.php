@@ -33,7 +33,7 @@ include("koneksi.php");
             $clanReputation = $response['json']['clan']['reputation'];
             $clanTokens = $response['json']['clan']['tokens'];
             $clanGolds = $response['json']['clan']['golds'];
-
+            $clanMembers = count($response['json']['members']);
             ?>
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
@@ -73,8 +73,8 @@ include("koneksi.php");
                     <span class="info-box-icon elevation-1"><img src="dist/img/token.png" width="60%"></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Token(s)</span>
-                        <span class="info-box-number"><?php echo number_format($clanTokens); ?></span>
+                        <span class="info-box-text">Token(s) / Gold(s)</span>
+                        <span class="info-box-number"><?php echo number_format($clanTokens); ?> / <?php echo number_format($clanGolds); ?></span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -83,11 +83,11 @@ include("koneksi.php");
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
-                    <span class="info-box-icon  elevation-1"><img src="dist/img/gold.png" width="60%"></span>
+                    <span class="info-box-icon  elevation-1"><i class="fas fa-users"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Gold(s)</span>
-                        <span class="info-box-number"><?php echo number_format($clanGolds); ?></span>
+                        <span class="info-box-text">Member(s)</span>
+                        <span class="info-box-number"><?php echo number_format($clanMembers); ?> Ninjas</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
