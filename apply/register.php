@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "function/koneksi.php");
+include("../function/koneksi.php");
 if (!empty($_POST)) {
 	$output = '';
 	$nick = mysqli_real_escape_string($connect, $_POST["nick"]);
