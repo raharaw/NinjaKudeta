@@ -25,7 +25,7 @@
  </script>
  <?php
   if (isset($_POST["employee_id"])) {
-     include("koneksi.php");
+    include("koneksi.php");
     $output = '';
     $query = "SELECT * FROM member WHERE id = '" . $_POST["employee_id"] . "'";
     $result = mysqli_query($connect, $query);
@@ -33,35 +33,35 @@
     $output .= '
          <form method="post" id="update_form">
            <div class="form-row">
-          <div class="form-group col-xs-4">
+          <div class="form-group col-6">
      <label>Nick</label>
      <input type="hidden" name="id" id="id" value="' . $_POST["employee_id"] . '" class="form-control" />
      <input type="text" name="nick" id="enick" value="' . $row['nick'] . '" class="form-control" />
      </div>
-     <div class="form-group col-xs-4">
+     <div class="form-group col-6">
      <label>ID Char</label>
-     <input type="text" name="charid" id="echarid" class="form-control" value="' . $row['charid'] . '" />
+     <input type="number" name="charid" id="echarid" class="form-control" value="' . $row['charid'] . '" />
      </div>
      
-      <div class="form-group col-xs-2">
+      <div class="form-group col-6">
               <label>Token <img src="dist/img/token.png" width="15px"></label>
-              <input type="text" name="token" id="token" value="' . $row['token'] . '" class="form-control" />
+              <input type="number" name="token" id="token" value="' . $row['token'] . '" class="form-control" />
           </div>
 
-          <div class="form-group col-xs-2">
+          <div class="form-group col-6">
               <label>Onigiri <img src="dist/img/onigiri.png" width="15px"></label>
-              <input type="text" name="onigiri" id="onigiri" value="' . $row['onigiri'] . '" class="form-control" />
+              <input type="number" name="onigiri" id="onigiri" value="' . $row['onigiri'] . '" class="form-control" />
           </div>
     </div>  
 
      <div class="form-row">
   
-        <div class="form-group col-xs-6">
+        <div class="form-group col-6">
               <label for="discord">Discord <img src="dist/img/discord.png" width="15px"></label>
                 <input type="text" class="form-control" id="discord" value="' . $row['discord'] . '" name="discord" placeholder="Discord">
         </div>
 
-         <div class="form-group col-xs-6">
+         <div class="form-group col-6">
               <label for="nowa">Whatsapp <img src="dist/img/wa.png" width="15px"></label>
                 <input type="text" class="form-control" id="nowa"  value="' . $row['nowa'] . '" name="nowa" placeholder="Nomor Whatsapp">
         </div>
@@ -70,7 +70,7 @@
 
 
 <div class="form-row">
-           <div class="form-group col-xs-4">
+           <div class="form-group col-6">
                <label>Player</label>
      <select name="pchp" id="pchp" class="form-control">';
     if ($row['pchp'] == "PC") {
@@ -89,7 +89,7 @@
 
     $output .= '</select>
      </div>
-   <div class="form-group col-xs-4">
+   <div class="form-group col-6">
                   <label>Macro</label>
      <select name="macro" id="macro" class="form-control">';
     if ($row['macro'] == "Yes") {
@@ -108,7 +108,7 @@
 
     $output .= '</select>
         </div>
-   <div class="form-group col-xs-4">
+   <div class="form-group col-6">
                   <label>Final Day</label>
      <select name="finalday" id="finalday" class="form-control">';
     if ($row['finalday'] == "Attend") {
@@ -130,14 +130,14 @@
      </div>
      </div>
 <div class="form-row">
-   <div class="form-group col-xs-12">
+   <div class="form-group col-12">
     <label for="warn">Warn User <img src="dist/img/warn.png" width="15px"></label>
     <textarea name="warn" id="warn" class="form-control" placeholder="Masukan List Warn" rows="5">' . $row['warn'] . '</textarea> 
   </div>
 </div>
  
      <div class="form-row">
-   <div class="form-group col-xs-8">
+   <div class="form-group col-8">
      <input type="submit" name="update" id="update" value="Update" class="btn btn-success" />
     
 </div>

@@ -180,41 +180,41 @@ if ($_SESSION['status'] != "login") {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Input Data Member</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <form method="post" id="insert_form">
             <div class="form-row">
-              <div class="form-group col-xs-4">
+              <div class="form-group col-6">
                 <label>Nickname</label>
                 <input type="text" name="nick" id="nick" class="form-control" placeholder="Nickname" />
 
               </div>
-              <div class="form-group col-xs-2">
+              <div class="form-group col-6">
                 <label>ID Char</label>
-                <input type="text" name="charid" id="charid" class="form-control" placeholder="Char ID" />
+                <input type="number" name="charid" id="charid" class="form-control" placeholder="Char ID" />
               </div>
-
-              <div class="form-group col-xs-2">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
                 <label>Token <img src="dist/img/token.png" width="15px"></label>
-                <input type="text" name="token" id="token" class="form-control" />
+                <input type="number" name="token" id="token" class="form-control" />
               </div>
 
-              <div class="form-group col-xs-2">
+              <div class="form-group col-6">
                 <label>Onigiri <img src="dist/img/onigiri.png" width="15px"></label>
-                <input type="text" name="onigiri" id="onigiri" class="form-control" />
+                <input type="number" name="onigiri" id="onigiri" class="form-control" />
               </div>
             </div>
 
             <div class="form-row">
-
-              <div class="form-group col-xs-6">
+              <div class="form-group col-6">
                 <label for="discord">Discord <img src="dist/img/discord.png" width="15px"></label>
                 <input type="text" class="form-control" id="discord" name="discord" placeholder="Discord">
               </div>
 
-              <div class="form-group col-xs-6">
+              <div class="form-group col-6">
                 <label for="nowa">Whatsapp <img src="dist/img/wa.png" width="15px"></label>
                 <input type="text" class="form-control" id="nowa" name="nowa" placeholder="Nomor Whatsapp">
               </div>
@@ -222,7 +222,7 @@ if ($_SESSION['status'] != "login") {
             </div>
 
             <div class="form-row">
-              <div class="form-group col-xs-4">
+              <div class="form-group col-6">
                 <label>Player</label>
                 <select name="pchp" id="pchp" class="form-control">
                   <option value="PC">PC User</option>
@@ -231,7 +231,7 @@ if ($_SESSION['status'] != "login") {
                 </select>
               </div>
 
-              <div class="form-group col-xs-4">
+              <div class="form-group col-6">
                 <label>Macro</label>
                 <select name="macro" id="macro" class="form-control">
                   <option value="Yes">Yes</option>
@@ -239,8 +239,9 @@ if ($_SESSION['status'] != "login") {
                   <option value="Unknown Macro">Unknown Macro</option>
                 </select>
               </div>
-
-              <div class="form-group col-xs-4">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
                 <label>Final Day</label>
                 <select name="finalday" id="finalday" class="form-control">
                   <option value="Attend">Attend</option>
@@ -252,13 +253,13 @@ if ($_SESSION['status'] != "login") {
             </div>
 
             <div class="form-row">
-              <div class="form-group col-xs-12">
+              <div class="form-group col-12">
                 <label for="warn">Warn User <img src="dist/img/warn.png" width="15px"></label>
                 <textarea name="warn" id="warn" class="form-control" placeholder="Masukan List Warn" rows="5"></textarea>
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-xs-8">
+              <div class="form-group col-8">
                 <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
               </div>
             </div>
@@ -278,8 +279,8 @@ if ($_SESSION['status'] != "login") {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Detail Data Member</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body" id="detail_karyawan">
 
@@ -296,8 +297,8 @@ if ($_SESSION['status'] != "login") {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Edit Data Member</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body" id="form_edit">
 

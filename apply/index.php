@@ -43,12 +43,12 @@
                             </div>
                             <form action="login.php" onSubmit="return validasi()" method="post" id="insert_form">
                                 <div class="form-row">
-                                    <div class="form-group col-xs-6">
+                                    <div class="form-group col-6">
                                         <label>Nickname</label>
                                         <input type="text" name="nick" id="nick" class="form-control" placeholder="Nickname" />
 
                                     </div>
-                                    <div class="form-group col-xs-6">
+                                    <div class="form-group col-6">
                                         <label>ID Char</label>
                                         <input type="number" name="charid" id="charid" class="form-control" placeholder="Char ID" />
                                     </div>
@@ -56,12 +56,12 @@
 
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-xs-6">
+                                    <div class="form-group col-6">
                                         <label>Token <img src="images/token.png" width="15px"></label>
                                         <input type="number" name="token" id="token" class="form-control" />
                                     </div>
 
-                                    <div class="form-group col-xs-6">
+                                    <div class="form-group col-6">
                                         <label>Onigiri <img src="images/onigiri.png" width="15px"></label>
                                         <input type="number" name="onigiri" id="onigiri" class="form-control" />
                                     </div>
@@ -69,12 +69,12 @@
 
                                 <div class="form-row">
 
-                                    <div class="form-group col-xs-6">
+                                    <div class="form-group col-6">
                                         <label for="discord">Discord <img src="images/discord.png" width="15px"></label>
                                         <input type="text" class="form-control" id="discord" name="discord" placeholder="Discord">
                                     </div>
 
-                                    <div class="form-group col-xs-6">
+                                    <div class="form-group col-6">
                                         <label for="nowa">Whatsapp <img src="images/wa.png" width="15px"></label>
                                         <input type="text" class="form-control" id="nowa" name="nowa" placeholder="Nomor Whatsapp">
                                     </div>
@@ -82,7 +82,7 @@
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="form-group col-xs-6">
+                                    <div class="form-group col-6">
                                         <label>Player</label>
                                         <select name="pchp" id="pchp" class="form-control">
                                             <option value="PC">PC User</option>
@@ -91,7 +91,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-xs-6">
+                                    <div class="form-group col-6">
                                         <label>Macro</label>
                                         <select name="macro" id="macro" class="form-control">
                                             <option value="Yes">Yes</option>
