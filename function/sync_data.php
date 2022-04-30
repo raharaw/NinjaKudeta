@@ -1,7 +1,8 @@
 <?php
 function sync_data()
 {
-    $connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
+    include("koneksi.php");
+  
     $query = "SELECT * FROM member ORDER BY id DESC";
     $result = mysqli_query($connect, $query);
     function curl($url, $headers = [], $postFields = [])
@@ -50,14 +51,13 @@ function sync_data()
 
 
     foreach ($dataToBeInserted as $id => $content) {
-        $connect2 = mysqli_connect("localhost", "root", "", "ninjakudeta");
         $data_id = $content['id'];
         $data_rep = $content['reputation_api'];
         $query2 = "UPDATE member SET reputation = '$data_rep' WHERE charid = '$data_id'";
-        if (mysqli_query($connect2, $query2)) {
+        if (mysqli_query($connect, $query2)) {
             $output = 'Data Berhasil Disimpan';
         } else {
-            $output = mysqli_error($connect2);
+            $output = mysqli_error($connect);
         }
     }
 

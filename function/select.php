@@ -1,9 +1,10 @@
 <?php  
 //select.php  
+include("koneksi.php");
 if(isset($_POST["employee_id"]))
 {
  $output = '';
- $connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
+
  $query = "SELECT * FROM member WHERE id = '".$_POST["employee_id"]."'";
  $result = mysqli_query($connect, $query);
  $output .= '  

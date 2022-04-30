@@ -1,6 +1,5 @@
 <?php
-
-$connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
+include("koneksi.php");
 if (isset($_POST["employee_id"])) {
   $output = '';
   $query = "

@@ -1,6 +1,5 @@
 <?php
-
-$connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
+include("koneksi.php");
 if (!empty($_POST)) {
   $output = '';
   $nick = mysqli_real_escape_string($connect, $_POST["nick"]);
@@ -13,10 +12,10 @@ if (!empty($_POST)) {
   $macro = mysqli_real_escape_string($connect, $_POST["macro"]);
   $finalday = mysqli_real_escape_string($connect, $_POST["finalday"]);
   $warn = mysqli_real_escape_string($connect, $_POST["warn"]);
-
+    $rep = 0;
   $query = "
-    INSERT INTO member(nick, charid, discord, token,nowa,onigiri,pchp,macro,finalday,warn)  
-     VALUES('$nick', '$charid', '$discord', '$token','$nowa','$onigiri','$player','$macro','$finalday','$warn')
+    INSERT INTO member(nick, charid, discord, token,nowa,onigiri,pchp,macro,finalday,warn,reputation)  
+     VALUES('$nick', '$charid', '$discord', '$token','$nowa','$onigiri','$player','$macro','$finalday','$warn','$rep')
     ";
   if (mysqli_query($connect, $query)) {
     $output .= 'Data Berhasil Disimpan';

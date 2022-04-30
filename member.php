@@ -1,3 +1,10 @@
+<?php  
+//index.php
+session_start();
+if($_SESSION['status'] !="login"){
+  header("location:login");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +25,7 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer">
   <div class="wrapper">
 
     <!-- Preloader -->
@@ -110,10 +117,16 @@
                   <h5 class="card-title">Member Data</h5>
 
                   <div class="card-tools" style="padding-right: 1rem;">
-                    <button type="button" class="btn btn-block btn-outline-success btn-xs sync-data" style="margin: 0 0.5rem">Sync Data
+                     <div class="row">
+                      <div class="col">
+                    <button type="button" class="btn btn-block btn-outline-success btn-sm sync-data" style="margin: 0 0.5rem">Sync Data
                     </button>
-                    <button type="button" class="btn btn-block btn-outline-primary btn-xs" data-toggle="modal" data-target="#add_data_Modal" style="margin: 0 0.5rem">Add Member
+                  </div>
+                  <div class="col">
+                    <button type="button" class="btn btn-block btn-outline-success btn-sm" data-toggle="modal" data-target="#add_data_Modal" style="margin: 0 0.5rem">Add Member
                     </button>
+                  </div>
+                  </div>
                   </div>
                 </div>
                 <!-- /.card-header -->

@@ -25,8 +25,8 @@
  </script>
  <?php
   if (isset($_POST["employee_id"])) {
+     include("koneksi.php");
     $output = '';
-    $connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
     $query = "SELECT * FROM member WHERE id = '" . $_POST["employee_id"] . "'";
     $result = mysqli_query($connect, $query);
     $row = mysqli_fetch_array($result);

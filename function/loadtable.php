@@ -1,5 +1,19 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    table.table td a.delete {
+        color: #F44336;
+    }
+
+    table.table td a.edit {
+        color: #FFC107;
+    }
+
+    table.table td a.view {
+        color: #03A9F4;
+    }
+</style>
 <div class="card-body">
-    <table id="example1" class="table table-bordered table-striped">
+    <table id="example1" class="table table-hover table-bordered table-striped">
         <thead>
             <tr>
                 <th>Name</th>
@@ -15,7 +29,8 @@
         </thead>
         <tbody>
             <?php
-            $connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
+            include("koneksi.php");
+            // $connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
             $query = "SELECT * FROM member ORDER BY id DESC";
             $result = mysqli_query($connect, $query);
             function curl($url, $headers = [], $postFields = [])
@@ -55,21 +70,39 @@
                     <td><?php echo $row["macro"]; ?></td>
                     <td><?php echo $row["finalday"]; ?></td>
                     <td>
-                        <input type="button" name="view" value="Lihat Detail" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs view_data" />&nbsp;
-                        <input type="button" name="edit" value="Edit" id="<?php echo $row["id"]; ?>" class="btn btn-warning btn-xs edit_data" /> &nbsp;
-                        <input type="button" name="delete" value="Hapus" id="<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs hapus_data" />
-                    </td>
+                        <a href="#" name="view" id="<?php echo $row["id"]; ?>" value="Lihat Detail" class="view view_data" title="Detail" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>&nbsp;
+                        <a href="#" id="<?php echo $row["id"]; ?>" class="edit edit_data" name="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>&nbsp;
+                        <a href="#deleteEmployeeModal" id="<?php echo $row["id"]; ?>" value="Hapus" name="delete" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></ </td>
 
                 </tr>
             <?php
             }
 
-            
+
             ?>
         </tbody>
     </table>
 </div>
-
+<div id="deleteEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Hapus Member</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Anda Yakin Akan Menghapus Data? </p>
+                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" name="delete" value="Hapus" class="btn btn-danger hapus_data" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <script>
     $(function() {
         $("#example1").DataTable({
@@ -82,12 +115,18 @@
 <script>
     $(document).on('click', '.sync-data', function() {
         $.ajax({
-          url: "function/sync_data.php",
-          method: "POST",
-          success: function(data) {
-              alert(data);
-              $("#loadTable").load("function/loadtable.php");
-          }
+            url: "function/sync_data.php",
+            method: "POST",
+            success: function(data) {
+                alert(data);
+                $("#loadTable").load("function/loadtable.php");
+            }
         });
-      });
+    });
+
+    $(document).on('click', '.delete', function() {
+        debugger;
+        var id = $(this)[0].id;
+        $('.hapus_data').attr('id',id);
+    });
 </script>

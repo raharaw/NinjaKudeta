@@ -1,6 +1,6 @@
 <?php
+include("koneksi.php");
 
-$connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
 if (!empty($_POST)) {
   $output = '';
   $nick = mysqli_real_escape_string($connect, $_POST["nick"]);

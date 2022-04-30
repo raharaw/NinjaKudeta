@@ -3,7 +3,7 @@
         <!-- Info boxes -->
         <div class="row">
             <?php
-
+include("koneksi.php");
             function curl($url, $headers = [], $postFields = [])
             {
                 $ch = curl_init();
@@ -37,7 +37,7 @@
             ?>
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
-                    <span class="info-box-icon bg-info elevation-1"><img src="dist/img/trophy.png" width="60%"></span>
+                    <span class="info-box-icon  elevation-1"><img src="dist/img/trophy.png" width="60%"></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Clan Rank</span>
@@ -53,7 +53,7 @@
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
-                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                    <span class="info-box-icon elevation-1"><img src="dist/img/rep.png" width="60%"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Reputation(s)</span>
@@ -70,7 +70,7 @@
 
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
-                    <span class="info-box-icon bg-success elevation-1"><img src="dist/img/token.png" width="60%"></span>
+                    <span class="info-box-icon elevation-1"><img src="dist/img/token.png" width="60%"></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Token(s)</span>
@@ -83,7 +83,7 @@
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3">
-                    <span class="info-box-icon bg-warning elevation-1"><img src="dist/img/gold.png" width="60%"></span>
+                    <span class="info-box-icon  elevation-1"><img src="dist/img/gold.png" width="60%"></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Gold(s)</span>
@@ -105,7 +105,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
+                        <table id="example1" class="table table-hover table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -121,7 +121,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
+                                
                                 $query = "SELECT * FROM member ORDER BY id DESC";
                                 $result = mysqli_query($connect, $query);
 
