@@ -56,12 +56,12 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-xs-6">
-                                        <label>Token <img src="<?php $_SERVER['DOCUMENT_ROOT']?>/dist/img/token.png" width="15px"></label>
+                                        <label>Token <img src="images/token.png" width="15px"></label>
                                         <input type="number" name="token" id="token" class="form-control" />
                                     </div>
 
                                     <div class="form-group col-xs-6">
-                                        <label>Onigiri <img src="../dist/img/onigiri.png" width="15px"></label>
+                                        <label>Onigiri <img src="images/onigiri.png" width="15px"></label>
                                         <input type="number" name="onigiri" id="onigiri" class="form-control" />
                                     </div>
                                 </div>
@@ -69,12 +69,12 @@
                                 <div class="form-row">
 
                                     <div class="form-group col-xs-6">
-                                        <label for="discord">Discord <img src="../dist/img/discord.png" width="15px"></label>
+                                        <label for="discord">Discord <img src="images/discord.png" width="15px"></label>
                                         <input type="text" class="form-control" id="discord" name="discord" placeholder="Discord">
                                     </div>
 
                                     <div class="form-group col-xs-6">
-                                        <label for="nowa">Whatsapp <img src="../dist/img/wa.png" width="15px"></label>
+                                        <label for="nowa">Whatsapp <img src="images/wa.png" width="15px"></label>
                                         <input type="text" class="form-control" id="nowa" name="nowa" placeholder="Nomor Whatsapp">
                                     </div>
 
