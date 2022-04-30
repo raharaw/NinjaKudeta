@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-xs-6">
-                                        <label>Token <img src="../dist/img/token.png" width="15px"></label>
+                                        <label>Token <img src="<?php $_SERVER['DOCUMENT_ROOT']?>/dist/img/token.png" width="15px"></label>
                                         <input type="number" name="token" id="token" class="form-control" />
                                     </div>
 
