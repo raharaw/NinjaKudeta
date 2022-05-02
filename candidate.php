@@ -132,14 +132,7 @@ if ($_SESSION['status'] != "login") {
                                 <div class="card-header">
                                     <h5 class="card-title">Candidates Data</h5>
 
-                                    <div class="card-tools" style="padding-right: 1rem;">
-                                        <div class="row">
-                                            <div class="col">
-                                                <button type="button" class="btn btn-block btn-outline-success btn-sm" data-toggle="modal" data-target="#add_data_Modal" style="margin: 0 0.5rem">Add Candidate
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                                 <!-- /.card-header -->
                                 <div id="loadTable"></div>
