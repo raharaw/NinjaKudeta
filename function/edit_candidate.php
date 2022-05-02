@@ -7,7 +7,7 @@
        alert("Mohon Isi ID Char");
      } else {
        $.ajax({
-         url: "function/update.php",
+         url: "function/update_candidate.php",
          method: "POST",
          data: $('#update_form').serialize(),
          beforeSend: function() {
@@ -17,7 +17,7 @@
            $('#update_form')[0].reset();
            $('#editModal').modal('hide');
            alert(data);
-           $("#loadTable").load("function/loadtable.php");
+           $("#loadTable").load("function/loadcandidate.php");
          }
        });
      }
