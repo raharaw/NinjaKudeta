@@ -29,7 +29,7 @@
         <tbody>
             <?php
             include("koneksi.php");
-            // $connect = mysqli_connect("localhost", "root", "", "ninjakudeta");
+        
             $query = "SELECT * FROM candidate ORDER BY id DESC";
             $result = mysqli_query($connect, $query);
     
