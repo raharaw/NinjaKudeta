@@ -273,7 +273,7 @@ if ($_SESSION['status'] != "login") {
     <div id="dataModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-success">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Detail Data Member</h4>
                 </div>
@@ -340,7 +340,7 @@ if ($_SESSION['status'] != "login") {
 
     <script>
         $(document).ready(function() {
-            $("#loadTable").load("function/loadtable.php");
+            $("#loadTable").load("function/loadcandidate.php");
             // Begin Aksi Insert
             $('#insert_form').on("submit", function(event) {
                 event.preventDefault();
