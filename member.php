@@ -372,7 +372,7 @@ if ($_SESSION['status'] != "login") {
       });
       //END Aksi Insert
 
-      //Begin Tampil Detail Karyawan
+      //Begin Tampil Detail Karyawan s
       $(document).on('click', '.view_data', function() {
         var employee_id = $(this).attr("id");
         $.ajax({
