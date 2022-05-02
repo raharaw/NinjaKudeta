@@ -136,6 +136,7 @@
                         success: function(data) {
                             $('#insert_form')[0].reset();
                             alert(data);
+                            window.location.href = 'thanks.php';
                         }
                     });
                 }
