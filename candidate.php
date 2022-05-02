@@ -267,8 +267,8 @@ if ($_SESSION['status'] != "login") {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Detail Data Member</h4>
+                 
+                    <h4 class="modal-title">Detail Data Candidate</h4>
                 </div>
                 <div class="modal-body" id="detail_karyawan">
 
@@ -286,7 +286,7 @@ if ($_SESSION['status'] != "login") {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Edit Data Member</h4>
+                    <h4 class="modal-title">Edit Data Candidate</h4>
                 </div>
                 <div class="modal-body" id="form_edit">
 
@@ -353,7 +353,7 @@ if ($_SESSION['status'] != "login") {
                             $('#insert_form')[0].reset();
                             $('#add_data_Modal').modal('hide');
                             alert(data);
-                            $("#loadTable").load("function/loadtable.php");
+                            $("#loadTable").load("function/loadcandidate.php");
                         }
                     });
                 }
@@ -364,7 +364,7 @@ if ($_SESSION['status'] != "login") {
             $(document).on('click', '.view_data', function() {
                 var employee_id = $(this).attr("id");
                 $.ajax({
-                    url: "function/select.php",
+                    url: "function/select_candidate.php",
                     method: "POST",
                     data: {
                         employee_id: employee_id
@@ -381,7 +381,7 @@ if ($_SESSION['status'] != "login") {
             $(document).on('click', '.edit_data', function() {
                 var employee_id = $(this).attr("id");
                 $.ajax({
-                    url: "function/edit.php",
+                    url: "function/edit_candidate.php",
                     method: "POST",
                     data: {
                         employee_id: employee_id
@@ -398,14 +398,14 @@ if ($_SESSION['status'] != "login") {
             $(document).on('click', '.hapus_data', function() {
                 var employee_id = $(this).attr("id");
                 $.ajax({
-                    url: "function/delete.php",
+                    url: "function/delete_candidate.php",
                     method: "POST",
                     data: {
                         employee_id: employee_id
                     },
                     success: function(data) {
                         alert(data);
-                        $("#loadTable").load("function/loadtable.php");
+                        $("#loadTable").load("function/loadcandidate.php");
                     }
                 });
             });
