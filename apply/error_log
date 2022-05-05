@@ -14,3 +14,27 @@ Stack trace:
   thrown in /home/ninjakudeta/public_html/login/login.php on line 8
 [30-Apr-2022 14:25:52 UTC] PHP Warning:  Undefined array key "username" in /home/ninjakudeta/public_html/login/login.php on line 4
 [30-Apr-2022 14:25:52 UTC] PHP Warning:  Undefined array key "password" in /home/ninjakudeta/public_html/login/login.php on line 5
+[30-Apr-2022 19:30:56 UTC] PHP Warning:  include(/home/ninjakudeta/public_html/applyfunction/koneksi.php): Failed to open stream: No such file or directory in /home/ninjakudeta/public_html/apply/register.php on line 2
+[30-Apr-2022 19:30:56 UTC] PHP Warning:  include(): Failed opening '/home/ninjakudeta/public_html/applyfunction/koneksi.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home/ninjakudeta/public_html/apply/register.php on line 2
+[30-Apr-2022 19:30:56 UTC] PHP Warning:  Undefined variable $connect in /home/ninjakudeta/public_html/apply/register.php on line 5
+[30-Apr-2022 19:30:56 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in /home/ninjakudeta/public_html/apply/register.php:5
+Stack trace:
+#0 /home/ninjakudeta/public_html/apply/register.php(5): mysqli_real_escape_string(NULL, '123321')
+#1 {main}
+  thrown in /home/ninjakudeta/public_html/apply/register.php on line 5
+[30-Apr-2022 19:30:59 UTC] PHP Warning:  include(/home/ninjakudeta/public_html/applyfunction/koneksi.php): Failed to open stream: No such file or directory in /home/ninjakudeta/public_html/apply/register.php on line 2
+[30-Apr-2022 19:30:59 UTC] PHP Warning:  include(): Failed opening '/home/ninjakudeta/public_html/applyfunction/koneksi.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home/ninjakudeta/public_html/apply/register.php on line 2
+[30-Apr-2022 19:30:59 UTC] PHP Warning:  Undefined variable $connect in /home/ninjakudeta/public_html/apply/register.php on line 5
+[30-Apr-2022 19:30:59 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in /home/ninjakudeta/public_html/apply/register.php:5
+Stack trace:
+#0 /home/ninjakudeta/public_html/apply/register.php(5): mysqli_real_escape_string(NULL, '123321')
+#1 {main}
+  thrown in /home/ninjakudeta/public_html/apply/register.php on line 5
+[30-Apr-2022 19:31:01 UTC] PHP Warning:  include(/home/ninjakudeta/public_html/applyfunction/koneksi.php): Failed to open stream: No such file or directory in /home/ninjakudeta/public_html/apply/register.php on line 2
+[30-Apr-2022 19:31:01 UTC] PHP Warning:  include(): Failed opening '/home/ninjakudeta/public_html/applyfunction/koneksi.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home/ninjakudeta/public_html/apply/register.php on line 2
+[30-Apr-2022 19:31:01 UTC] PHP Warning:  Undefined variable $connect in /home/ninjakudeta/public_html/apply/register.php on line 5
+[30-Apr-2022 19:31:01 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in /home/ninjakudeta/public_html/apply/register.php:5
+Stack trace:
+#0 /home/ninjakudeta/public_html/apply/register.php(5): mysqli_real_escape_string(NULL, '123321')
+#1 {main}
+  thrown in /home/ninjakudeta/public_html/apply/register.php on line 5

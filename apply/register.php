@@ -20,5 +20,6 @@ if (!empty($_POST)) {
 		$output .= mysqli_error($connect);
 	}
 	echo $output;
+
 }
 ?>
