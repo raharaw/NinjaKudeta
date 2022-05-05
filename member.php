@@ -139,7 +139,7 @@ if ($_SESSION['status'] != "login") {
                         </button>
                       </div>
                       <div class="col">
-                        <button type="button" class="btn btn-block btn-outline-primary btn-sm" data-toggle="modal" data-target="#add_data_Modal" style="margin: 0 0.5rem">Add Member
+                        <button type="button" class="btn btn-block btn-outline-success btn-sm" data-toggle="modal" data-target="#add_data_Modal" style="margin: 0 0.5rem">Add Member
                         </button>
                       </div>
                     </div>
@@ -179,7 +179,7 @@ if ($_SESSION['status'] != "login") {
   <div id="add_data_Modal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-success">
           <h4 class="modal-title">Input Data Member</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>

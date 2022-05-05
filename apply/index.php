@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<meta property="og:image" content="https://apply.ninjakudeta.com/images/bg-2.png" />
+<meta property="og:title" content="Apply Candidate - Ninja Kudeta" />
+<meta property="og:description" content="Ninja Kudeta - Ninja Sage Clan - Let's join us and gain victory!" />
     <link rel="stylesheet" href="css/style.css">
 
     <style>
@@ -136,6 +138,7 @@
                         success: function(data) {
                             $('#insert_form')[0].reset();
                             alert(data);
+                            window.location.href = 'thanks.php';
                         }
                     });
                 }
